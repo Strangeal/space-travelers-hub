@@ -1,6 +1,6 @@
 // Actions
 const SET_MISSIONS = 'travelers-space-hub/missions/SET_MISSIONS';
-const JOIN_MISSION = 'travelers-space-hub/missions/JOIN_MISSION';
+const JOIN_LEAVE_MISSION = 'travelers-space-hub/missions/JOIN_LEAVE_MISSION';
 const MISSIONS_API_LINK = 'https://api.spacexdata.com/v3/missions';
 
 // Reducer
@@ -9,7 +9,7 @@ export default function missionsReducer(state = [], action) {
     case SET_MISSIONS:
       return [...action.payload];
 
-    case JOIN_MISSION:
+    case JOIN_LEAVE_MISSION:
       return [...state.map((mission) => {
         if (mission.mission_id === action.payload) {
           return { ...mission, reserved: !mission.reserved };
@@ -28,8 +28,8 @@ const setMissionsAction = (missions) => ({
   payload: missions,
 });
 
-const joinMissionAction = (id) => ({
-  type: JOIN_MISSION,
+const joinLeaveMissionAction = (id) => ({
+  type: JOIN_LEAVE_MISSION,
   payload: id,
 });
 
@@ -46,4 +46,4 @@ const fetchMissionsData = () => async (dispatch) => {
     });
 };
 
-export { fetchMissionsData, joinMissionAction };
+export { fetchMissionsData, joinLeaveMissionAction };

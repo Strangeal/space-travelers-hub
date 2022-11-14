@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import {
   fetchMissionsData,
-  joinMissionAction,
+  joinLeaveMissionAction,
 } from '../redux/missions/missions';
 
 const MissionsPage = () => {
@@ -12,7 +12,7 @@ const MissionsPage = () => {
   }, [dispatch]);
 
   const handleClick = (id) => {
-    dispatch(joinMissionAction(id));
+    dispatch(joinLeaveMissionAction(id));
   };
 
   const missionsList = useSelector((state) => state.missions);
