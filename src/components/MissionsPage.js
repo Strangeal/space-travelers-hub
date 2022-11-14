@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissionsData } from '../redux/missions/missions';
 
@@ -9,10 +8,10 @@ const MissionsPage = () => {
   return (
     <div>
       <ul>
-        {missionsList.map((item) => (<li>{item}</li>))}
+        {missionsList.map((item) => (<li key={item.mission_id}>{item}</li>))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default MissionsPage;

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import missionsReducer from './missions/missions';
 
