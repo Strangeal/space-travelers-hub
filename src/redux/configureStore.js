@@ -1,6 +1,6 @@
-/* eslint-disable */
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import rocketsReducer from './rockets/rocketSlice'
+import rocketsReducer from './rockets/rocketSlice';
+
 const rootReducer = combineReducers({
   rockets: rocketsReducer,
 });

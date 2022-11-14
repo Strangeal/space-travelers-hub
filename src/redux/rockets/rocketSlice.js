@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -21,15 +20,18 @@ const rocketSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(rocketFetch.pending, (state, action) => {
-        state.status = 'pending';
+      .addCase(rocketFetch.pending, (state) => {
+        const IsPending = state;
+        IsPending.status = 'pending';
       })
       .addCase(rocketFetch.fulfilled, (state, action) => {
-        state.status = 'success';
-        state.rockets = action.payload;
+        const IsSucessful = state;
+        IsSucessful.status = 'success';
+        IsSucessful.rockets = action.payload;
       })
-      .addCase(rocketFetch.rejected, (state, action) => {
-        state.status = 'rejected';
+      .addCase(rocketFetch.rejected, (state) => {
+        const IsRejected = state;
+        IsRejected.status = 'rejected';
       });
   },
 });
