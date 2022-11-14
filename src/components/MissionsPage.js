@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchMissionsData } from '../redux/missions/missions';
+import {
+  fetchMissionsData,
+  joinMissionAction,
+} from '../redux/missions/missions';
 
 const MissionsPage = () => {
   const dispatch = useDispatch();
@@ -8,7 +11,12 @@ const MissionsPage = () => {
     dispatch(fetchMissionsData());
   }, [dispatch]);
 
+  const handleClick = (id) => {
+    dispatch(joinMissionAction(id));
+  };
+
   const missionsList = useSelector((state) => state.missions);
+
   return (
     <div>
       <table>
@@ -21,19 +29,26 @@ const MissionsPage = () => {
           </tr>
         </thead>
         <tbody>
-          {
-          missionsList.map((item) => (
+          {missionsList.map((item) => (
             <tr key={item.mission_id}>
               <td>{item.mission_name}</td>
               <td>{item.description}</td>
-              <td><span>Not a member</span></td>
-              <td><button type="button">Join mission</button></td>
+              <td>
+                <span>{item.reserved ? 'Active member' : 'Not a member'}</span>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleClick(item.mission_id);
+                  }}
+                >
+                  {item.reserved ? 'Leave mission' : 'Join mission'}
+                </button>
+              </td>
             </tr>
-          ))
-        }
-
+          ))}
         </tbody>
-
       </table>
     </div>
   );
