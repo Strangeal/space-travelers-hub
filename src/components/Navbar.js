@@ -6,7 +6,7 @@ const Navbar = () => (
     <nav className="navbar">
       <div className="nav__brand">
         <img src={planet} alt="Logo" />
-        <h1>Space Travelers`&apos;` Hub</h1>
+        <h1>Space Travelers&apos; Hub</h1>
       </div>
       <ul className="nav__menu">
         <li>
