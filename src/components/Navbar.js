@@ -1,5 +1,5 @@
-import planet from "../planet.png";
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import planet from '../planet.png';
 
 const Navbar = () => (
   <header>
