@@ -8,7 +8,8 @@ const MISSIONS_API_LINK = 'https://api.spacexdata.com/v3/missions';
 export default function missionsReducer(state = [], action) {
   switch (action.type) {
     case SET_MISSIONS:
-      return [...action.payload];
+      let missions = action.payload.map((item) => ({mission_name:item.mission_name, mission_id:item.mission_id, description:item.description}));
+      return [...missions];
 
     default:
       return state;
@@ -22,9 +23,7 @@ const fetchMissionsData = () => async (dispatch) => {
   await fetch(MISSIONS_API_LINK)
     .then((result) => result.json())
     .then((res) => {
-      console.log(res);
-      let missions = res.map((item) => ({mission_name:item.mission_name, mission_id:item.mission_id, description:item.description}));
-      dispatch(setMissionsAction(missions));
+      dispatch(setMissionsAction(res));
     });
 };
 
