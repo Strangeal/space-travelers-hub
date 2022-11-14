@@ -1,16 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  fetchMissionsData,
-  joinLeaveMissionAction,
-} from '../redux/missions/missions';
+import { joinLeaveMissionAction } from '../redux/missions/missions';
 
 const MissionsPage = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchMissionsData());
-  }, [dispatch]);
-
   const handleClick = (id) => {
     dispatch(joinLeaveMissionAction(id));
   };
