@@ -4,50 +4,51 @@ import { rocketBooking, rocketFetch } from '../redux/rockets/rocketSlice';
 
 const RocketsPage = () => {
   const dispatch = useDispatch();
-  
+
   const { rockets, status } = useSelector((state) => state.rockets);
-  
+  console.log(rockets);
+
   useEffect(() => {
-    if ( status === null) {
+    if (status === null) {
       dispatch(rocketFetch());
     }
   }, [dispatch]);
-  
-  const handleBookings = (e) => {
-    // console.log(id);
-    dispatch(rocketBooking(e.target.id))
-  }
- 
 
+  const handleBookings = (id) => {
+    console.log(id);
+    dispatch(rocketBooking(id));
+  };
 
   return (
     <div>
       <div className="rocket__card">
         {rockets.map(
-          ({ id, rocketImages, rocketName, reserved, rocketDesc }) => (
+          ({
+            id, rocketImages, rocketName, reserved, rocketDesc,
+          }) => (
             <div key={id} className="rocket__content">
               <img src={rocketImages[0]} alt="" />
               <div className="rocket__desc">
                 <h3>{rocketName}</h3>
 
-                  {!reserved ? (
-                    <>
+                {!reserved ? (
+                  <>
                     <p>{ rocketDesc }</p>
-                    <button id={id} onClick={(e) => handleBookings(e)}>Reserve Rocket</button>
-                    </>
-                  ) : (
-                    <>
+                    <button type="button" id={id} onClick={() => handleBookings(id)}>Reserve Rocket</button>
+                  </>
+                ) : (
+                  <>
                     <p>
                       <span>status</span>
                       { rocketDesc }
                     </p>
-                      <button id={id} onClick={(e) => handleBookings(e)}>Cancel Reservations</button>
-                    </>
-                  )}
-                
+                    <button type="button" id={id} onClick={(e) => handleBookings(e)}>Cancel Reservations</button>
+                  </>
+                )}
+
               </div>
             </div>
-          )
+          ),
         )}
       </div>
     </div>

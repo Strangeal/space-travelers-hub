@@ -6,37 +6,35 @@ const initialState = {
   status: null,
 };
 
-export const rocketFetch = createAsyncThunk(
-  'rockets/rocketFetch',
-  async () => {
-    const response = await axios.get('https://api.spacexdata.com/v3/rockets');
-    const data = response.data;
-    const rocketsInfo = data.map((rocket) => ({
-      id: rocket.id,
-      rocketName: rocket.rocket_name,
-      rocketDesc: rocket.description,
-      rocketImages: rocket.flickr_images,
-      reserved: false,
-
-    }))
-    return rocketsInfo;
-  },
-  );
+export const rocketFetch = createAsyncThunk('rockets/rocketFetch', async () => {
+  const response = await axios.get('https://api.spacexdata.com/v3/rockets');
+  const { data } = response;
+  const rocketsInfo = data.map((rocket) => ({
+    id: rocket.id,
+    rocketName: rocket.rocket_name,
+    rocketDesc: rocket.description,
+    rocketImages: rocket.flickr_images,
+    reserved: false,
+  }));
+  return rocketsInfo;
+});
 
 const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
     rocketBooking: (state, action) => {
-     state.rockets.map((rocket) => {
-       if(rocket.id !== action.payload) return rocket
-      //  console.log("yes");
-          return { ...rocket, reserved: !rocket.reserved }
-        })
-        // console.log("no");
-
-      
-    }
+      const newRockets = [];
+      state.rockets.forEach((rocket) => {
+        if (rocket.id === action.payload) {
+          newRockets.push({ ...rocket, reserved: !rocket.reserved });
+        }
+        newRockets.push({...rocket});
+      });
+      console.log(newRockets);
+      return {rockets: newRockets, status:null};
+      // console.log("no");
+    },
   },
   extraReducers(builder) {
     builder

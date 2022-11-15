@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { rocketBooking } from '../redux/rockets/rocketSlice';
 
 const RocketsList = ({ rockets }) => {
-  console.log(rockets)
+  console.log(rockets);
+  const dispatch = useDispatch();
   const handleBookings = () => {
-    dispatch(rocketBooking())
-  }
+    dispatch(rocketBooking());
+  };
   return (
     <div>
       <div className="rocket__card">
@@ -23,7 +26,7 @@ const RocketsList = ({ rockets }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RocketsList
+export default RocketsList;
