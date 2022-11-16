@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { rocketFetch } from '../redux/rockets/rocketSlice';
+import { rocketBooking, rocketFetch } from '../redux/rockets/rocketSlice';
 
 const RocketsPage = () => {
   const dispatch = useDispatch();
@@ -13,32 +13,43 @@ const RocketsPage = () => {
     }
   }, [status, dispatch]);
 
-  let content;
-  if (status === 'pending') {
-    content = <p>Loading...</p>;
-  } else if (status === 'rejected') {
-    content = <p>An error occured</p>;
-  } else if (status === 'success') {
-    content = <p>Success...</p>;
-  }
+  const handleBookings = (id) => {
+    dispatch(rocketBooking(id));
+  };
 
   return (
     <div>
-      {content}
       <div className="rocket__card">
-        {rockets.map((rocket) => (
-          <div key={rocket.id} className="rocket__content">
-            <img src={rocket.flickr_images[0]} alt="" />
-            <div className="rocket__desc">
-              <h3>{rocket.rocket_name}</h3>
-              <p>
-                <span>status</span>
-                <span>{rocket.description}</span>
-              </p>
-              <button type="submit">Reserve Rocket</button>
-            </div>
-          </div>
-        ))}
+        {status === 'pending' ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            {rockets.map(
+              ({
+                id, rocketImages, rocketName, reserved, rocketDesc,
+              }) => (
+                <div key={id} className="rocket__content">
+                  <img src={rocketImages[0]} alt={rocketName} />
+                  <div className="rocket__desc">
+                    <h3>{rocketName}</h3>
+                    <p>
+                      {reserved ? <span>Reserved </span> : ''}
+                      {rocketDesc}
+                    </p>
+                    <button
+                      id={id}
+                      type="submit"
+                      onClick={() => { handleBookings(id); }}
+                    >
+                      {reserved ? 'Cancel Reservations' : 'Reserve Rockets'}
+                    </button>
+                  </div>
+                </div>
+              ),
+            )}
+          </>
+        )}
+
       </div>
     </div>
   );
