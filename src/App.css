@@ -1,4 +1,179 @@
-.active {
-  color: #1ae01a; }
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ul {
+  list-style: none; }
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5rem;
+  font-family: "Montserrat", sans-serif; }
+
+a {
+  text-decoration: none; }
+
+img,
+picture {
+  max-width: 100%; }
+
+body {
+  padding: 2rem;
+  font-family: "Montserrat", sans-serif; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3rem; }
+  @media screen and (min-width: 768px) {
+    main {
+      flex-direction: row; } }
+
+.no-missions-joined, .no__reservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; }
+  .no-missions-joined p, .no__reservations p {
+    font-weight: 700; }
+  @media screen and (min-width: 768px) {
+    .no-missions-joined, .no__reservations {
+      align-items: start; } }
+
+.join-missions-link, .reserve-rockets-link {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  color: #18a2b8;
+  border: 1px solid #18a2b8; }
+
+.join-missions-link:hover, .reserve-rockets-link:hover {
+  color: #f8f9fa;
+  background-color: #18a2b8; }
+
+.joined-missions,
+.reserved-rockets {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  gap: 20px; }
+  @media screen and (min-width: 768px) {
+    .joined-missions,
+    .reserved-rockets {
+      text-align: start; } }
+
+.missions-list,
+.rockets-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #6c757d;
+  border-bottom: none; }
+  .missions-list li,
+  .rockets-list li {
+    border-bottom: 1px solid #6c757d;
+    padding: 10px; }
+
+.btn {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f8f9fa;
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem; }
+
+.join-mission-btn {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  background-color: white; }
+
+.join-mission-btn:hover {
+  color: #f8f9fa;
+  background-color: #6c757d; }
+
+.leave-mission-btn {
+  background-color: white;
+  color: #dc3545;
+  border: 1px solid #dc3545; }
+
+.leave-mission-btn:hover {
+  color: #f8f9fa;
+  background-color: #dc3545; }
+
+.active-tag {
+  display: inline-block;
+  color: #f8f9fa;
+  background-color: #18a2b8;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 700;
+  font-size: 0.75rem; }
+
+.not-active-tag {
+  font-size: 0.75rem;
+  display: inline-block;
+  color: #f8f9fa;
+  background-color: #6c757d;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 700; }
+
+table {
+  color: #212529; }
+  @media screen and (min-width: 768px) {
+    table {
+      border: 1px solid #6c757d;
+      border-collapse: collapse; } }
+
+thead {
+  display: none; }
+  @media screen and (min-width: 768px) {
+    thead {
+      display: table-header-group; }
+      thead th {
+        padding: 10px;
+        border: 1px solid #6c757d;
+        text-align: start; } }
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; }
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #6c757d;
+    border-radius: 8px; }
+  tbody .mission-name {
+    font-weight: 800;
+    text-decoration: underline; }
+  tbody .active-td, tbody .btn-td {
+    white-space: nowrap; }
+  @media screen and (min-width: 768px) {
+    tbody {
+      display: table-row-group; }
+      tbody tr {
+        display: table-row;
+        text-align: start; }
+      tbody tr:nth-of-type(odd) {
+        background-color: #f2f2f2; }
+      tbody td,
+      tbody th {
+        padding: 20px;
+        border: 1px solid #6c757d; }
+      tbody .mission-name {
+        text-decoration: none; } }
 
 /*# sourceMappingURL=App.css.map */
