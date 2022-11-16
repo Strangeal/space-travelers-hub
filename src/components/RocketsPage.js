@@ -33,11 +33,12 @@ const RocketsPage = () => {
                   <div className="rocket__desc">
                     <h3>{rocketName}</h3>
                     <p>
-                      {reserved ? <span>Reserved </span> : ''}
+                      {reserved ? <span className="reserved__badge">Reserved </span> : ''}
                       {rocketDesc}
                     </p>
                     <button
                       id={id}
+                      className={reserved ? 'cancel__reservations' : 'reserve__rockets'}
                       type="submit"
                       onClick={() => { handleBookings(id); }}
                     >

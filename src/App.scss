@@ -1,3 +1,56 @@
-.active {
-  color: rgb(26, 224, 26);
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// variables
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #237e54;
+$danger: #dc3545;
+$dark: #212529;
+$light: #f8f9fa;
+$muted: #6c757d;
+$darkGreen: #3c6f5f;
+
+$small-breakpoint: 768px;
+
+$font-family: "Helvetica","Arial",sans-serif;
+$lato: 'Lato', sans-serif;
+$Montserrat: 'Montserrat', sans-serif;
+$Nunito: 'Nunito', sans-serif;
+$Poppins: 'Poppins', sans-serif;
+$RobotoSlab: 'Roboto Slab', serif;
+
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+ul {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: $Montserrat;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+}
+
+// Header styles
+@import './style/header';
+
+// Rocket styles
+@import './style/rocket'
