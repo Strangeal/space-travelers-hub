@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
