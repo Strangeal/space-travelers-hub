@@ -20,34 +20,34 @@ const RocketsPage = () => {
   return (
     <div>
       <div className="rocket__card">
-        {/* {status === 'pending' ? (
+        {status === 'pending' ? (
           <p>Loading...</p>
-          ) : status === 'rejected' (
-            <p>An error occured</p>
-            )} */}
-
-        {rockets.map(
-          ({
-            id, rocketImages, rocketName, reserved, rocketDesc,
-          }) => (
-            <div key={id} className="rocket__content">
-              <img src={rocketImages[0]} alt={rocketName} />
-              <div className="rocket__desc">
-                <h3>{rocketName}</h3>
-                <p>
-                  {reserved ? <span>Reserved </span> : ''}
-                  {rocketDesc}
-                </p>
-                <button
-                  id={id}
-                  type="submit"
-                  onClick={() => { handleBookings(id); }}
-                >
-                  {reserved ? 'Cancel Reservations' : 'Reserve Rockets'}
-                </button>
-              </div>
-            </div>
-          ),
+        ) : (
+          <>
+            {rockets.map(
+              ({
+                id, rocketImages, rocketName, reserved, rocketDesc,
+              }) => (
+                <div key={id} className="rocket__content">
+                  <img src={rocketImages[0]} alt={rocketName} />
+                  <div className="rocket__desc">
+                    <h3>{rocketName}</h3>
+                    <p>
+                      {reserved ? <span>Reserved </span> : ''}
+                      {rocketDesc}
+                    </p>
+                    <button
+                      id={id}
+                      type="submit"
+                      onClick={() => { handleBookings(id); }}
+                    >
+                      {reserved ? 'Cancel Reservations' : 'Reserve Rockets'}
+                    </button>
+                  </div>
+                </div>
+              ),
+            )}
+          </>
         )}
 
       </div>

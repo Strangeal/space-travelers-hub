@@ -22,7 +22,9 @@ const rocketSlice = createSlice({
     rocketBooking: (state, action) => {
       const myState = state;
       const newState = myState.rockets.map((rocket) => {
-        if (rocket.id !== action.payload) return rocket;
+        if (rocket.id !== action.payload) {
+          return rocket;
+        }
         return { ...rocket, reserved: !rocket.reserved };
       });
       myState.rockets = newState;
