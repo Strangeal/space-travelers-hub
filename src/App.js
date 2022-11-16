@@ -1,4 +1,5 @@
 /* eslint-disable */
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import Navbar from './components/Navbar';
 import { Navigate, Route, Routes } from 'react-router-dom';
