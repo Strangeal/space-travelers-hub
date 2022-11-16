@@ -4,51 +4,52 @@ import { rocketBooking, rocketFetch } from '../redux/rockets/rocketSlice';
 
 const RocketsPage = () => {
   const dispatch = useDispatch();
-  
+
   const { rockets, status } = useSelector((state) => state.rockets);
-  
+
   useEffect(() => {
-    if ( status === null) {
+    if (status === null) {
       dispatch(rocketFetch());
     }
-  }, [dispatch]);
-  
-  const handleBookings = (e) => {
-    // console.log(id);
-    dispatch(rocketBooking(e.target.id))
-  }
- 
+  }, [status, dispatch]);
 
+  const handleBookings = (id) => {
+    dispatch(rocketBooking(id));
+  };
 
   return (
     <div>
       <div className="rocket__card">
+        {/* {status === 'pending' ? (
+          <p>Loading...</p>
+          ) : status === 'rejected' (
+            <p>An error occured</p>
+            )} */}
+
         {rockets.map(
-          ({ id, rocketImages, rocketName, reserved, rocketDesc }) => (
+          ({
+            id, rocketImages, rocketName, reserved, rocketDesc,
+          }) => (
             <div key={id} className="rocket__content">
-              <img src={rocketImages[0]} alt="" />
+              <img src={rocketImages[0]} alt={rocketName} />
               <div className="rocket__desc">
                 <h3>{rocketName}</h3>
-
-                  {!reserved ? (
-                    <>
-                    <p>{ rocketDesc }</p>
-                    <button id={id} onClick={(e) => handleBookings(e)}>Reserve Rocket</button>
-                    </>
-                  ) : (
-                    <>
-                    <p>
-                      <span>status</span>
-                      { rocketDesc }
-                    </p>
-                      <button id={id} onClick={(e) => handleBookings(e)}>Cancel Reservations</button>
-                    </>
-                  )}
-                
+                <p>
+                  {reserved ? <span>Reserved </span> : ''}
+                  {rocketDesc}
+                </p>
+                <button
+                  id={id}
+                  type="submit"
+                  onClick={() => { handleBookings(id); }}
+                >
+                  {reserved ? 'Cancel Reservations' : 'Reserve Rockets'}
+                </button>
               </div>
             </div>
-          )
+          ),
         )}
+
       </div>
     </div>
   );
