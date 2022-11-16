@@ -6,35 +6,28 @@ const initialState = {
   status: null,
 };
 
-export const rocketFetch = createAsyncThunk('rockets/rocketFetch', async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/rockets');
-  const { data } = response;
-  const rocketsInfo = data.map((rocket) => ({
-    id: rocket.id,
-    rocketName: rocket.rocket_name,
-    rocketDesc: rocket.description,
-    rocketImages: rocket.flickr_images,
-    reserved: false,
-  }));
-  return rocketsInfo;
-});
+export const rocketFetch = createAsyncThunk(
+  'rockets/rocketFetch',
+  async () => {
+    const response = await axios.get('https://api.spacexdata.com/v3/rockets');
+    const { data } = response;
+    return data;
+  },
+);
 
 const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
     rocketBooking: (state, action) => {
-      const newRockets = [];
-      state.rockets.forEach((rocket) => {
-        if (rocket.id === action.payload) {
-          newRockets.push({ ...rocket, reserved: !rocket.reserved });
-        }
-        newRockets.push({...rocket});
+      const myState = state;
+      const newState = myState.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: !rocket.reserved };
       });
-      console.log(newRockets);
-      return {rockets: newRockets, status:null};
-      // console.log("no");
+      myState.rockets = newState;
     },
+
   },
   extraReducers(builder) {
     builder
@@ -45,7 +38,17 @@ const rocketSlice = createSlice({
       .addCase(rocketFetch.fulfilled, (state, action) => {
         const IsSucessful = state;
         IsSucessful.status = 'success';
-        IsSucessful.rockets = action.payload;
+        // IsSucessful.rockets = action.payload;
+
+        const rocketData = [];
+        action.payload.map((rocket) => rocketData.push({
+          id: rocket.id,
+          rocketName: rocket.rocket_name,
+          rocketDesc: rocket.description,
+          rocketImages: rocket.flickr_images,
+          reserved: false,
+        }));
+        IsSucessful.rockets = rocketData;
       })
       .addCase(rocketFetch.rejected, (state) => {
         const IsRejected = state;
