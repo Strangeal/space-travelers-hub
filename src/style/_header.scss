@@ -1,0 +1,47 @@
+// Navbar
+header {
+  margin-bottom: 3rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 5rem;
+  flex-wrap: wrap;
+
+  .brand__link {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 50px;
+    }
+
+    h1 {
+      color: $dark;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .nav__menu {
+    display: flex;
+
+    .nav__link {
+      color: $primary;
+      margin: 0 8px;
+    }
+  }
+
+  .active {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: $small-breakpoint) {
+  .navbar {
+    justify-content: space-between;
+  }
+}
