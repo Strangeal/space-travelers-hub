@@ -6,15 +6,23 @@ const Profile = () => {
   const myMissions = useSelector((state) => state.missions.filter((mission) => mission.reserved));
   const myRocketList = rockets.filter((rocks) => rocks.reserved);
   return (
-    <>
+    <div className="profile-page-container">
       <section className="joined-missions">
         <h2>My Missions</h2>
-        <span>{myMissions.length ? '' : 'No missions joined'}</span>
-        <ul>
-          {myMissions.map((mission) => (
-            <li key={mission.mission_id}>{mission.mission_name}</li>
-          ))}
-        </ul>
+        {myMissions.length === 0 ? (
+          <div className="no-missions-joined">
+            <p>No Missions Joined</p>
+
+            <Link className="join-missions-link" to="/missionsPage">Join Missions</Link>
+
+          </div>
+        ) : (
+          <ul className="missions-list">
+            {myMissions.map((mission) => (
+              <li key={mission.mission_id}>{mission.mission_name}</li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <section className="reserved-rockets">
@@ -22,22 +30,17 @@ const Profile = () => {
         {myRocketList.length === 0 ? (
           <div className="no__reservations">
             <p>No Reservations Made</p>
-            <div className="make__reservations">
-              <Link to="/">
-
-                Make Reservations
-              </Link>
-            </div>
+            <Link className="reserve-rockets-link" to="/">Make Reservations</Link>
           </div>
         ) : (
-          <ul>
+          <ul className="rockets-list">
             {myRocketList.map(({ id, rocketName }) => (
               <li key={id}>{rocketName}</li>
             ))}
           </ul>
         )}
       </section>
-    </>
+    </div>
   );
 };
 

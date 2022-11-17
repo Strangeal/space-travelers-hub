@@ -14,7 +14,7 @@ ul {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.5rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -25,6 +25,231 @@ a {
 img,
 picture {
   max-width: 100%;
+}
+
+main {
+  padding: 0 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    padding: 0 5rem;
+  }
+}
+
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-page-container {
+    flex-direction: row;
+  }
+}
+
+.no-missions-joined,
+.no__reservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-missions-joined p,
+.no__reservations p {
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .no-missions-joined,
+  .no__reservations {
+    align-items: start;
+  }
+}
+
+.join-missions-link,
+.reserve-rockets-link {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  color: #18a2b8;
+  border: 1px solid #18a2b8;
+}
+
+.join-missions-link:hover,
+.reserve-rockets-link:hover {
+  color: #f8f9fa;
+  background-color: #18a2b8;
+}
+
+.joined-missions,
+.reserved-rockets {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .joined-missions,
+  .reserved-rockets {
+    text-align: start;
+  }
+}
+
+.missions-list,
+.rockets-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #a5a5a5;
+  border-bottom: none;
+}
+
+.missions-list li,
+.rockets-list li {
+  border-bottom: 1px solid #6c757d;
+  padding: 10px;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f8f9fa;
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.join-mission-btn {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  background-color: white;
+}
+
+.join-mission-btn:hover {
+  color: #f8f9fa;
+  background-color: #6c757d;
+}
+
+.leave-mission-btn {
+  background-color: white;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.leave-mission-btn:hover {
+  color: #f8f9fa;
+  background-color: #dc3545;
+}
+
+.active-tag {
+  display: inline-block;
+  color: #f8f9fa;
+  background-color: #18a2b8;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.not-active-tag {
+  font-size: 0.75rem;
+  display: inline-block;
+  color: #f8f9fa;
+  background-color: #6c757d;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 700;
+}
+
+table {
+  color: #212529;
+}
+
+@media screen and (min-width: 768px) {
+  table {
+    border: 1px solid #6c757d;
+    border-collapse: collapse;
+  }
+}
+
+thead {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  thead {
+    display: table-header-group;
+  }
+
+  thead th {
+    padding: 10px;
+    border: 1px solid #6c757d;
+    text-align: start;
+  }
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+tbody tr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #6c757d;
+  border-radius: 8px;
+}
+
+tbody .mission-name {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+tbody .active-td,
+tbody .btn-td {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 768px) {
+  tbody {
+    display: table-row-group;
+  }
+
+  tbody tr {
+    display: table-row;
+    text-align: start;
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
+
+  tbody td,
+  tbody th {
+    padding: 10px;
+    border: 1px solid #6c757d;
+  }
+
+  tbody .mission-name {
+    text-decoration: none;
+  }
+}
+
+header {
+  margin-bottom: 3rem;
 }
 
 .navbar {
@@ -74,7 +299,6 @@ picture {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem 5rem;
 }
 
 .rocket__card .rocket__content {
@@ -132,7 +356,7 @@ picture {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgb(68, 68, 68);
+  color: #444;
   min-height: 80vh;
 }
 
@@ -175,6 +399,7 @@ picture {
 
   .rocket__card .rocket__content .rocket__desc h3 {
     margin: 0;
+    padding-bottom: 0.5rem;
   }
 
   .rocket__card .rocket__content .rocket__desc p {
