@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import store from '../redux/configureStore';
-import NotFound from './NotFound';
+import NotFound from '../components/NotFound';
 
 describe('Not found page testing', () => {
   test('Does not found match the snapshot', () => {

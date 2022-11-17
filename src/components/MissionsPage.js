@@ -11,7 +11,7 @@ const MissionsPage = () => {
 
   return (
     <div>
-      <table className="missions-table">
+      <table className="missions-table" data-testid="missions-table">
         <thead>
           <tr>
             <th>Mission</th>
@@ -23,7 +23,7 @@ const MissionsPage = () => {
         <tbody>
           {missionsList.map((item) => (
             <tr key={item.mission_id}>
-              <td className="mission-name">{item.mission_name}</td>
+              <td data-testid="mission-name" className="mission-name">{item.mission_name}</td>
               <td>{item.description}</td>
               <td className="active-td">
                 {item.reserved ? (
@@ -35,6 +35,7 @@ const MissionsPage = () => {
               {item.reserved ? (
                 <td className="btn-td">
                   <button
+                    data-testid="leave-mission-btn"
                     className="btn leave-mission-btn"
                     type="button"
                     onClick={() => {
@@ -47,6 +48,7 @@ const MissionsPage = () => {
               ) : (
                 <td className="btn-td">
                   <button
+                    data-testid="join-mission-btn"
                     className="btn join-mission-btn"
                     type="button"
                     onClick={() => {

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import store from '../redux/configureStore';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 
 describe('Navbar component testing', () => {
   test('Does the navbar match the snapshot', () => {

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
-import RocketsPage from './RocketsPage';
+import RocketsPage from '../components/RocketsPage';
 
 describe('Rocket page testing', () => {
   test('Does Rocket match the snapshot', () => {
