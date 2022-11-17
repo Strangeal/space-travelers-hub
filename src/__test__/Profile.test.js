@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import renderWithProviders from '../../utils/testUtils';
-import Profile from '../Profile';
+import renderWithProviders from '../utils/testUtils'
+import Profile from '../components/Profile';
 
 describe('Testing the Profile component', () => {
   it('Checking that the Missions section renders correctly: ', () => {

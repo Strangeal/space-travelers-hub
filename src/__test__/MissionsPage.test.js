@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
-import renderWithProviders from '../../utils/testUtils';
-import MissionsPage from '../MissionsPage';
+import renderWithProviders from '../utils/testUtils';
+import MissionsPage from '../components/MissionsPage';
 
 describe('Testing the MissionsPage component', () => {
   beforeEach(() => {
