@@ -3,11 +3,12 @@
 // variables
 $primary: #0d6efd;
 $secondary: #6c757d;
-$success: #198754;
+$success: #237e54;
 $danger: #dc3545;
 $dark: #212529;
 $light: #f8f9fa;
 $muted: #6c757d;
+$darkGreen: #3c6f5f;
 
 $small-breakpoint: 768px;
 
@@ -48,4 +49,9 @@ picture {
   max-width: 100%;
 }
 
-@import './style/pages/missions'
+@import './style/pages/missions';
+// Header styles
+@import './style/header';
+
+// Rocket styles
+@import './style/rocket';

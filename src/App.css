@@ -176,4 +176,113 @@ tbody {
       tbody .mission-name {
         text-decoration: none; } }
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 5rem;
+  flex-wrap: wrap; }
+  .navbar .brand__link {
+    display: flex;
+    align-items: center; }
+    .navbar .brand__link img {
+      width: 100%;
+      max-width: 50px; }
+    .navbar .brand__link h1 {
+      color: #212529;
+      font-size: 1.5rem;
+      margin-left: 0.5rem; }
+  .navbar .nav__menu {
+    display: flex; }
+    .navbar .nav__menu .nav__link {
+      color: #0d6efd;
+      margin: 0 8px; }
+  .navbar .active {
+    text-decoration: underline; }
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    justify-content: space-between; } }
+.rocket__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 5rem; }
+  .rocket__card .rocket__content {
+    padding: 1.5rem;
+    margin: auto;
+    box-shadow: 0 0 0 1px rgba(144, 141, 141, 0.734);
+    border-radius: 8px; }
+    .rocket__card .rocket__content h3 {
+      font-size: 1.5rem;
+      margin: 0.5rem 0; }
+    .rocket__card .rocket__content .reserved__badge {
+      background-color: #3c6f5f;
+      color: #f8f9fa;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-right: 5px;
+      border-radius: 10px;
+      transition: cubic-bezier(0, 0.36, 0.73, 0.68); }
+    .rocket__card .rocket__content .reserve__rockets {
+      /* stylelint-disable-line */
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      /* stylelint-disable-line */
+      border: none;
+      color: #f8f9fa;
+      background-color: #0d6efd; }
+    .rocket__card .rocket__content .cancel__reservations {
+      /* stylelint-disable-line */
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      /* stylelint-disable-line */
+      background: transparent;
+      color: #212529;
+      border: 1px solid; }
+
+/* Not Found */
+.not__found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
+  min-height: 80vh; }
+  .not__found h2 {
+    font-size: 55px; }
+  .not__found p {
+    font-size: 1.5rem; }
+  .not__found .back__home {
+    color: gray;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .not__found .back__icon {
+    font-size: 2rem;
+    margin: 0 0.5rem; }
+
+@media screen and (min-width: 768px) {
+  .rocket__card {
+    gap: 1rem; }
+    .rocket__card .rocket__content {
+      display: grid;
+      grid-template-columns: 1fr 2.5fr;
+      box-shadow: none;
+      padding: 1rem; }
+      .rocket__card .rocket__content .rocket__desc {
+        margin-left: 2rem; }
+        .rocket__card .rocket__content .rocket__desc h3 {
+          margin: 0; }
+        .rocket__card .rocket__content .rocket__desc p {
+          line-height: 18px; } }
+
 /*# sourceMappingURL=App.css.map */
