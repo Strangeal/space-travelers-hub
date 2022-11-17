@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import renderWithProviders from '../utils/testUtils'
+import renderWithProviders from '../utils/testUtils';
 import Profile from '../components/Profile';
 
 describe('Testing the Profile component', () => {
