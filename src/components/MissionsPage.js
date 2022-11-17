@@ -19,6 +19,7 @@ const MissionsPage = () => {
             <th>Status</th>
             <th> </th>
           </tr>
+          li
         </thead>
         <tbody>
           {missionsList.map((item) => (

@@ -6,7 +6,7 @@ const Profile = () => {
   const myMissions = useSelector((state) => state.missions.filter((mission) => mission.reserved));
   const myRocketList = rockets.filter((rocks) => rocks.reserved);
   return (
-    <>
+    <div className="profile-page-container">
       <section className="joined-missions">
         <h2>My Missions</h2>
         {myMissions.length === 0 ? (
@@ -40,7 +40,7 @@ const Profile = () => {
           </ul>
         )}
       </section>
-    </>
+    </div>
   );
 };
 

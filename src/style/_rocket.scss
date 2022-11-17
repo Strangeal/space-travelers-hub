@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem 5rem;
 
   .rocket__content {
     padding: 1.5rem;
@@ -98,6 +97,7 @@
 
         h3 {
           margin: 0;
+          padding-bottom: 0.5rem;
         }
 
         p {
