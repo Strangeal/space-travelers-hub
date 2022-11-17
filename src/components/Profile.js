@@ -12,9 +12,9 @@ const Profile = () => {
         {myMissions.length === 0 ? (
           <div className="no-missions-joined">
             <p>No Missions Joined</p>
-           
-              <Link className="join-missions-link" to="/missionsPage">Join Missions</Link>
-            
+
+            <Link className="join-missions-link" to="/missionsPage">Join Missions</Link>
+
           </div>
         ) : (
           <ul className="missions-list">
@@ -30,7 +30,7 @@ const Profile = () => {
         {myRocketList.length === 0 ? (
           <div className="no__reservations">
             <p>No Reservations Made</p>
-              <Link className='reserve-rockets-link' to="/">Make Reservations</Link>
+            <Link className="reserve-rockets-link" to="/">Make Reservations</Link>
           </div>
         ) : (
           <ul className="rockets-list">
